@@ -4,27 +4,29 @@ import java.util.Scanner;
 public class GuessMovie {
 
     public static void main (String[] args) throws Exception {
-        int life = Game.getLife();
+        Game game = new Game();
+
+        int life = game.getLife();
         //System.out.println(life);
 
-        int moviesCount = Game.countMovies("src\\movies.txt");
+        int moviesCount = game.countMovies("src\\movies.txt");
         //System.out.println(moviesCount);
 
-        String[] movieList = Game.movieList(moviesCount, "src\\movies.txt");
+        String[] movieList = game.movieList(moviesCount, "src\\movies.txt");
        // System.out.println(movieList[3]);
 
-        String randomMovie = Game.randomMovie(movieList);
+        String randomMovie = game.randomMovie(movieList);
         //System.out.println(randomMovie);
 
 
-        String movieUnderscored = Game.movieUnderscored(randomMovie);
-        System.out.println(movieUnderscored);
+        String movieUnderscored = game.movieUnderscored(randomMovie);
+        //System.out.println(movieUnderscored);
 
 
-        String usersGuess = Game.usersGuess(randomMovie, movieUnderscored);
+        String usersGuess = game.usersGuess(randomMovie, movieUnderscored);
         System.out.println(usersGuess);
 
-        String hasWon = Game.winOrLoose(life, randomMovie, usersGuess);
+        String hasWon = game.winOrLoose(life, randomMovie, usersGuess);
         System.out.println(hasWon);}
     }
 
